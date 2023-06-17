@@ -53,9 +53,9 @@ namespace WebApplication2.Models
             return $"{Id},{Ime},{Cena},{Kolicina},{Opis},{Slika},{Datum},{Grad},{ListaRecenzija},{StatusDostupnosti}";
         }
 
-        public static Proizvod FromString(string red)
+        public static Proizvod FromString(string input)
         {
-            string[] vrednosti = red.Split(',');
+            string[] vrednosti = input.Split(',');
             Proizvod proizvod = new Proizvod
             {
                  id = int.Parse(vrednosti[0]),
