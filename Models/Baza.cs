@@ -35,9 +35,9 @@ namespace WebApplication2.Models
                         {
                             break;
                         }
-                        if (line.Split('|')[8] == "Prodavac")
+                        if (line.Split(',')[8] == "Prodavac")
                             k = Prodavac.FromString(line);
-                        else if (line.Split('|')[8] == "Kupac")
+                        else if (line.Split(',')[8] == "Kupac")
                             k = Kupac.FromString(line);
                         else
                             k = Korisnik.FromString(line);

@@ -31,5 +31,24 @@ namespace WebApplication2.Models
         public string Naslov { get => naslov; set => naslov = value; }
         public string SadrzajRecenzije { get => sadrzajRecenzije; set => sadrzajRecenzije = value; }
         public string Slika { get => slika; set => slika = value; }
+
+        public override string ToString()
+        {
+            return $"{ProizvodID},{Recezent},{Naslov},{SadrzajRecenzije},{Slika}";
+        }
+
+        public static Recenzija FromString(string input)
+        {
+            string[] values = input.Split(',');
+            Recenzija recenzija = new Recenzija
+            {
+                proizvodID = int.Parse(values[0]),
+                recezent = int.Parse(values[1]),
+                naslov = values[2],
+                sadrzajRecenzije = values[3],
+                slika = values[4],
+            };
+            return recenzija;
+        }
     }
 }

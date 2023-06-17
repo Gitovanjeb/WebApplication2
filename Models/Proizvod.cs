@@ -26,6 +26,7 @@ namespace WebApplication2.Models
         public Proizvod(int id, string ime, double cena, int kolicina, string opis, string slika, DateTime datum, string grad, List<int> listaRecenzija, bool statusDostupnosti)
         {
             this.id = id;
+            this.ime = ime;
             this.cena = cena;
             this.kolicina = kolicina;
             this.opis = opis;
@@ -46,5 +47,30 @@ namespace WebApplication2.Models
         public string Grad { get => grad; set => grad = value; }
         public List<int> ListaRecenzija { get => listaRecenzija; set => listaRecenzija = value; }
         public bool StatusDostupnosti { get => statusDostupnosti; set => statusDostupnosti = value; }
+
+        public override string ToString()
+        {
+            return $"{Id},{Ime},{Cena},{Kolicina},{Opis},{Slika},{Datum},{Grad},{ListaRecenzija},{StatusDostupnosti}";
+        }
+
+        public static Proizvod FromString(string red)
+        {
+            string[] vrednosti = red.Split(',');
+            Proizvod proizvod = new Proizvod
+            {
+                 id = int.Parse(vrednosti[0]),
+                 ime = vrednosti[1],
+                 cena = double.Parse(vrednosti[2]),
+                 kolicina = int.Parse(vrednosti[3]),
+                 opis = vrednosti[4],
+                 slika = vrednosti[5],
+                 datum = DateTime.Parse(vrednosti[6]),
+                 grad = vrednosti[7],
+                 listaRecenzija = vrednosti[8].Split(',').Select(int.Parse).ToList(),
+                 statusDostupnosti = bool.Parse(vrednosti[9]),
+        };
+
+            return proizvod;
+        }
     }
 }
