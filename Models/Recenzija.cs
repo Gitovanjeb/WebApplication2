@@ -39,14 +39,14 @@ namespace WebApplication2.Models
 
         public static Recenzija FromString(string input)
         {
-            string[] values = input.Split(',');
+            string[] vrednosti = input.Split(',');
             Recenzija recenzija = new Recenzija
             {
-                proizvodID = int.Parse(values[0]),
-                recezent = int.Parse(values[1]),
-                naslov = values[2],
-                sadrzajRecenzije = values[3],
-                slika = values[4],
+                proizvodID = int.Parse(vrednosti[0]),
+                recezent = int.Parse(vrednosti[1]),
+                naslov = vrednosti[2],
+                sadrzajRecenzije = vrednosti[3],
+                slika = vrednosti[4],
             };
             return recenzija;
         }
